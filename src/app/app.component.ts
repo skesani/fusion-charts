@@ -1,204 +1,328 @@
-// STEP 1- To import the dependencies
 import { Component } from "@angular/core";
 
-// STEP 2- Define the categories representing the labels on the X-axis
-const categories = [{
-  "category": [{
-    "label": "Jan"
+const data = {
+  chart: {
+    caption: "Monthly recurring revenue",
+    yaxisname: "Revenue",
+    subcaption: "(On GAAP basis)",
+    numberprefix: "$",
+    yaxisminvalue: "-2000",
+    showsum: "1",
+    plottooltext:
+      "$seriesName in $label was <b>$dataValue</b>  ($percentValue of monthly total)",
+    decimals: "1",
+    theme: "fusion"
   },
+  categories: [
     {
-      "label": "Feb"
+      category: [
+        {
+          label: "2022-06-01"
+        },
+        {
+          label: "2022-06-20"
+        },
+        {
+          label: "2022-07-29"
+        },
+        {
+          label: "2022-09-28"
+        },
+        {
+          label: "2022-10-07"
+        },
+        {
+          label: "2022-10-10"
+        },
+        {
+          label: "2022-10-11"
+        },
+        {
+          label: "2022-10-12"
+        },
+        {
+          label: "2022-10-13"
+        },
+        {
+          label: "2022-10-19"
+        }
+      ]
+    }
+  ],
+  dataset: [
+    {
+      seriesname: "MRR",
+      data: [
+        {
+          value: "810"
+        },
+        {
+          value: "930"
+        },
+        {
+          value: "1110"
+        },
+        {
+          value: "1300"
+        },
+        {
+          value: "1890"
+        },
+        {
+          value: "2350"
+        },
+        {
+          value: "2740"
+        },
+        {
+          value: "3050"
+        },
+        {
+          value: "3570"
+        },
+        {
+          value: "4390"
+        },
+        {
+          value: "5610"
+        },
+        {
+          value: "7160"
+        },
+        {
+          value: "7750"
+        }
+      ]
     },
     {
-      "label": "Mar"
+      seriesname: "New business",
+      data: [
+        {
+          value: "380"
+        },
+        {
+          value: "390"
+        },
+        {
+          value: "420"
+        },
+        {
+          value: "490"
+        },
+        {
+          value: "900"
+        },
+        {
+          value: "1160"
+        },
+        {
+          value: "1350"
+        },
+        {
+          value: "1510"
+        },
+        {
+          value: "1790"
+        },
+        {
+          value: "2140"
+        },
+        {
+          value: "2660"
+        },
+        {
+          value: "3850"
+        },
+        {
+          value: "4070"
+        }
+      ]
     },
     {
-      "label": "Apr"
+      seriesname: "Upsell",
+      data: [
+        {
+          value: "220"
+        },
+        {
+          value: "240"
+        },
+        {
+          value: "280"
+        },
+        {
+          value: "350"
+        },
+        {
+          value: "580"
+        },
+        {
+          value: "630"
+        },
+        {
+          value: "670"
+        },
+        {
+          value: "740"
+        },
+        {
+          value: "790"
+        },
+        {
+          value: "920"
+        },
+        {
+          value: "1050"
+        },
+        {
+          value: "1290"
+        },
+        {
+          value: "1320"
+        }
+      ]
     },
     {
-      "label": "May"
+      seriesname: "Consulting",
+      data: [
+        {
+          value: "0"
+        },
+        {
+          value: "0"
+        },
+        {
+          value: "0"
+        },
+        {
+          value: "20"
+        },
+        {
+          value: "50"
+        },
+        {
+          value: "50"
+        },
+        {
+          value: "60"
+        },
+        {
+          value: "60"
+        },
+        {
+          value: "60"
+        },
+        {
+          value: "80"
+        },
+        {
+          value: "130"
+        },
+        {
+          value: "170"
+        },
+        {
+          value: "170"
+        }
+      ]
     },
     {
-      "label": "Jun"
+      seriesname: "Churn",
+      data: [
+        {
+          value: "-50"
+        },
+        {
+          value: "-50"
+        },
+        {
+          value: "-70"
+        },
+        {
+          value: "-90"
+        },
+        {
+          value: "-100"
+        },
+        {
+          value: "-110"
+        },
+        {
+          value: "-150"
+        },
+        {
+          value: "-260"
+        },
+        {
+          value: "-320"
+        },
+        {
+          value: "-350"
+        },
+        {
+          value: "-500"
+        },
+        {
+          value: "-630"
+        },
+        {
+          value: "-650"
+        }
+      ]
     },
     {
-      "label": "Jul"
-    },
-    {
-      "label": "Aug"
-    },
-    {
-      "label": "Sep"
-    },
-    {
-      "label": "Oct"
-    },
-    {
-      "label": "Nov"
-    },
-    {
-      "label": "Dec"
+      seriesname: "Downgrades",
+      data: [
+        {
+          value: "-180"
+        },
+        {
+          value: "-210"
+        },
+        {
+          value: "-260"
+        },
+        {
+          value: "-320"
+        },
+        {
+          value: "-580"
+        },
+        {
+          value: "-680"
+        },
+        {
+          value: "-780"
+        },
+        {
+          value: "-900"
+        },
+        {
+          value: "-1060"
+        },
+        {
+          value: "-1320"
+        },
+        {
+          value: "-1520"
+        },
+        {
+          value: "-1650"
+        },
+        {
+          value: "-1660"
+        }
+      ]
     }
   ]
-}
-]
-// STEP 3- Construct the dataset comprising combination series
-const dataset = [{
-  "seriesName": "Actual Revenue",
-  "showValues": "1",
-  "data": [{
-    "value": "16000"
-  },
-    {
-      "value": "20000"
-    },
-    {
-      "value": "18000"
-    },
-    {
-      "value": "19000"
-    },
-    {
-      "value": "15000"
-    },
-    {
-      "value": "21000"
-    },
-    {
-      "value": "16000"
-    },
-    {
-      "value": "20000"
-    },
-    {
-      "value": "17000"
-    },
-    {
-      "value": "25000"
-    },
-    {
-      "value": "19000"
-    },
-    {
-      "value": "23000"
-    }
-  ]
-},
-  {
-    "seriesName": "Projected Revenue",
-    "renderAs": "line",
-    "data": [{
-      "value": "15000"
-    },
-      {
-        "value": "16000"
-      },
-      {
-        "value": "17000"
-      },
-      {
-        "value": "18000"
-      },
-      {
-        "value": "19000"
-      },
-      {
-        "value": "19000"
-      },
-      {
-        "value": "19000"
-      },
-      {
-        "value": "19000"
-      },
-      {
-        "value": "20000"
-      },
-      {
-        "value": "21000"
-      },
-      {
-        "value": "22000"
-      },
-      {
-        "value": "23000"
-      }
-    ]
-  },
-  {
-    "seriesName": "Profit",
-    "renderAs": "area",
-    "data": [{
-      "value": "4000"
-    },
-      {
-        "value": "5000"
-      },
-      {
-        "value": "3000"
-      },
-      {
-        "value": "4000"
-      },
-      {
-        "value": "1000"
-      },
-      {
-        "value": "7000"
-      },
-      {
-        "value": "1000"
-      },
-      {
-        "value": "4000"
-      },
-      {
-        "value": "1000"
-      },
-      {
-        "value": "8000"
-      },
-      {
-        "value": "2000"
-      },
-      {
-        "value": "7000"
-      }
-    ]
-  }
-]
+};
+
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html"
-  
 })
-
 export class AppComponent {
-  dataSource: Object;
-  constructor() {
-    this.dataSource = {
-      "chart": {
-        "caption": "Harry's SuperMart",
-        "subCaption": "Sales analysis of last year",
-        "xAxisname": "Month",
-        "yAxisName": "Amount (In USD)",
-        "numberPrefix": "\$",
-        "divlineColor": "#999999",
-        "divLineIsDashed": "1",
-        "divLineDashLen": "1",
-        "divLineGapLen": "1",
-        "toolTipColor": "#ffffff",
-        "toolTipBorderThickness": "0",
-        "toolTipBgColor": "#000000",
-        "toolTipBgAlpha": "80",
-        "toolTipBorderRadius": "2",
-        "toolTipPadding": "5",
-        "theme": "fusion"
-      },
-      "categories": categories,
-      "dataset": dataset
-      
-    }; // end of this.dataSource
-    
-  } // end of constructor
-} // end of class AppComponent
+  type = "stackedcolumn2d";
+  dataFormat = "json";
+  dataSource = data;
+}
